@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>Novo Produto</h2>
+
+<mat-dialog-content [formGroup]="form">
+    <div class="container">
+        <form class="example-form">
+            <mat-form-field appearance="legacy">
+                <input matInput placeholder="Código">
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <input matInput placeholder="Peso">
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <input matInput placeholder="Cubagem">
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <input matInput placeholder="Volume">
+            </mat-form-field>
+
+            <p>
+                <mat-form-field appearance="legacy" class="input-full-width">
+                    <input matInput placeholder="Decrição">
+                </mat-form-field>
+            </p>
+        </form>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button" id="button-close" (click)="close()">Cancelar</button>
+    <button class="mat-raised-button mat-primary" (click)="save()">Cadastrar Produto</button>
+</mat-dialog-actions>

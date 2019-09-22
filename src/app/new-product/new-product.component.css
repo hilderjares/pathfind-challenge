@@ -1,0 +1,31 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.example-container>* {
+    width: 100%;
+}
+
+.mat-dialog-content {
+    overflow: hidden;
+}
+
+mat-dialog-actions {
+    padding: 10px auto;
+    float: right;
+}
+
+mat-form-field {
+    padding: 10px;
+}
+
+.input-full-width {
+    width: 100%;
+}
+
+#button-close {
+    border: 1px solid #000000;
+    left: -15px;
+    box-shadow: none;
+}

@@ -1,0 +1,99 @@
+<div class="docs-primary-header component-page-header" id="header-page">
+    <h1> PRODUTOS </h1>
+    <span> Localize produtos importados de seu arquivo.</span>
+</div>
+
+<div class="container" id="header-table">
+    <div class="row">
+        <div class="col-xl-6">
+
+        </div>
+        <div class="col-sm-3">
+            <mat-form-field appearance="legacy">
+                <input matInput placeholder="Buscar Produto">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-1">
+            <button mat-raised-button (click)="openDialogAdd()">
+                    <i class="material-icons">
+                        add
+                    </i>
+                </button>
+        </div>
+        <div class="col-sm-1">
+            <button mat-raised-button (click)="openDialogFilter()">
+                <i class="material-icons">
+                    filter_list
+                </i>
+            </button>
+        </div>
+        <div class="col-sm-1">
+            <button mat-raised-button (click)="openDialogFilter()">
+                <i class="material-icons">
+                    delete
+                </i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="mat-elevation-z0" id="data-table">
+    <table mat-table class="full-width-table" matSort aria-label="Elements">
+
+        <ng-container matColumnDef="checked">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+            <td mat-cell *matCellDef="let row">
+                <mat-checkbox [(ngModel)]="row.checked"></mat-checkbox>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="code">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Código</th>
+            <td mat-cell *matCellDef="let row">{{row.id}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Descrição</th>
+            <td mat-cell *matCellDef="let row">{{row.name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Peso</th>
+            <td mat-cell *matCellDef="let row">{{row.name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="cubage">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Cubagem</th>
+            <td mat-cell *matCellDef="let row">{{row.name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="bulk">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Volume</th>
+            <td mat-cell *matCellDef="let row">{{row.name}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let row" class="action-link">
+                <a (click)="openDialog('Delete', row)">
+                    <i class="material-icons delete">
+                        delete
+                    </i>
+                </a>
+                <a (click)="openDialog('Update', row)">
+                    <i class="material-icons edit">
+                        edit
+                    </i>
+                </a>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator #paginator [length]="dataSource?.data.length" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[25, 50, 100, 250]">
+    </mat-paginator>
+</div>
